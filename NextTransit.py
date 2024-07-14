@@ -7,9 +7,9 @@ import time
 # Constants
 SUBWAY_FEED_URL = 'https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-nqrw'
 API_KEY = "YOUR_API_KEY_HERE"
-STOP_ID = "MTA_401756"
-LINE_REFS = ["MTA NYCT_M15", "MTA NYCT_M15+"]
-SERIAL_PORT = 'COM3'
+STOP_ID = "MTA_401756" ## Your MTA Bus stop here
+LINE_REFS = ["MTA NYCT_M15", "MTA NYCT_M15+"] # The busses you want to track
+SERIAL_PORT = 'COM3' #The port for your Arduino
 BAUD_RATE = 9600
 REFRESH_INTERVAL = 10  # in seconds
 
