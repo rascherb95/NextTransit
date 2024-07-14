@@ -70,8 +70,8 @@ def main():
         subway_feed = fetch_gtfs_feed(subway_feed_url)
 
         # Bus API credentials and stop information
-        api_key = "YOUR_API_KEY_HERE"
-        stop_id = "MTA_401756"
+        api_key = "YOUR_API_KEY_HERE" 
+        stop_id = "MTA_401756" ##Add your stop_id here
 
         line_refs = ["MTA NYCT_M15", "MTA NYCT_M15+"] ## M15 and M15-SBS serve my stop
 
@@ -122,13 +122,13 @@ def main():
             # Combine and send data to Arduino
             combined_output = '\n'.join(bus_output + train_output)
             send_to_arduino(combined_output)
-            #print(combined_output)
+            print(combined_output) ##Print the data to console, check against what arduino displays
             print('END TRANSMISSION')
 
         except Exception as e:
             print(f"Error: {e}")
 
-        time.sleep(10)
+        time.sleep(10) ##Refresh the Arduino with new code every 10 seconds
 
 if __name__ == "__main__":
     main()
