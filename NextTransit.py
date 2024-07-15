@@ -7,9 +7,10 @@ import time
 # Constants
 SUBWAY_FEED_URL = 'https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-nqrw'
 API_KEY = "YOUR_API_KEY_HERE"
-STOP_ID = "MTA_401756" ## Your MTA Bus stop here
-LINE_REFS = ["MTA NYCT_M15", "MTA NYCT_M15+"] # The busses you want to track
-SERIAL_PORT = 'COM3' #The port for your Arduino
+BUS_STOP_ID = "MTA_401756"  # Your MTA Bus stop here
+SUBWAY_STOP_ID = "Q03S"  # Your subway stop here
+LINE_REFS = ["MTA NYCT_M15", "MTA NYCT_M15+"]  # The buses you want to track
+SERIAL_PORT = 'COM3'  # The port for your Arduino
 BAUD_RATE = 9600
 REFRESH_INTERVAL = 10  # in seconds
 
@@ -97,7 +98,7 @@ def process_bus_data(buses, limit=2):
     return bus_output
 
 # Function to process and format subway data
-def process_subway_data(feed, stop_id='Q03S', limit=2):
+def process_subway_data(feed, stop_id=SUBWAY_STOP_ID, limit=2):
     subway_trains = []
     for entity in feed.entity:
         if entity.HasField('trip_update'):
@@ -117,7 +118,7 @@ def main():
     while True:
         try:
             subway_feed = fetch_gtfs_feed(SUBWAY_FEED_URL)
-            all_buses = fetch_and_process_bus_data(API_KEY, STOP_ID, LINE_REFS)
+            all_buses = fetch_and_process_bus_data(API_KEY, BUS_STOP_ID, LINE_REFS)
             
             bus_output = process_bus_data(all_buses)
             train_output = process_subway_data(subway_feed)
