@@ -16,5 +16,5 @@ NextTransit is a Python application that displays the next bus and subway arriva
 - MTA API key
 
 ## Usage Notes
-- Bus Stops: Visit [MTA Bus Time](https://bustime.mta.info) to find the bus stops. Unfortunately, there is no easily accessible database for all bus stops.
+- Bus Stops: Visit [MTA Bus Time](https://bustime.mta.info) to find your bus stop, or look IRL at your local bus stop.
 - Subway Stops: You can find subway stops at [data.gov.](https://catalog.data.gov/dataset/mta-subway-stations-and-complexes) Note that you need to specify the direction for subway stops (e.g., Q03S for southbound and Q03N for northbound).
